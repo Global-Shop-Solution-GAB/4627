@@ -1,0 +1,814 @@
+Program.Sub.ScreenSU.Start
+Gui.fSaleDate..Create
+Gui.fSaleDate..Size(4755,3390)
+Gui.fSaleDate..MinX(0)
+Gui.fSaleDate..MinY(0)
+Gui.fSaleDate..Position(0,0)
+Gui.fSaleDate..BackColor(-2147483633)
+Gui.fSaleDate..MousePointer(0)
+Gui.fSaleDate..Event(UnLoad,fSaleDate_UnLoad)
+Gui.fSaleDate..Caption("Sales By Sales Rep, Month")
+Gui.fSaleDate.lbl1.Create(Label,"Month to Analyze",True,1515,255,0,90,135,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.lbl2.Create(Label,"From Year:",True,945,255,0,2640,135,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.lbl3.Create(Label,"To Year:",True,885,255,0,3690,135,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.ddlSalesPsn1.Create(DropDownList)
+Gui.fSaleDate.ddlSalesPsn1.Size(2235,330)
+Gui.fSaleDate.ddlSalesPsn1.Position(90,1065)
+Gui.fSaleDate.ddlSalesPsn1.Event(Click,ddlSalesPsn1_Click)
+Gui.fSaleDate.lbl4.Create(Label,"Sales Rep",True,1965,255,0,90,855,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.txtSaleRepID.Create(TextBox,"",True,855,300,0,2700,1065,True,0,"Arial",8,-2147483648,1)
+Gui.fSaleDate.txtSaleRepID.Locked(True)
+Gui.fSaleDate.lbl5.Create(Label,"Sales Rep ID",True,1965,255,0,2670,855,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.cmdExport2Xl.Create(Button)
+Gui.fSaleDate.cmdExport2Xl.Size(1965,375)
+Gui.fSaleDate.cmdExport2Xl.Position(105,2490)
+Gui.fSaleDate.cmdExport2Xl.Caption("Export to Excel")
+Gui.fSaleDate.cmdExport2Xl.Event(Click,cmdExport2Xl_Click)
+Gui.fSaleDate.ddlMonth1.Create(DropDownList)
+Gui.fSaleDate.ddlMonth1.Size(735,330)
+Gui.fSaleDate.ddlMonth1.Position(90,375)
+Gui.fSaleDate.ddlYear1.Create(DropDownList)
+Gui.fSaleDate.ddlYear1.Size(840,330)
+Gui.fSaleDate.ddlYear1.Position(2685,375)
+Gui.fSaleDate.ddlYear2.Create(DropDownList)
+Gui.fSaleDate.ddlYear2.Size(780,330)
+Gui.fSaleDate.ddlYear2.Position(3720,375)
+Gui.fSaleDate.txtFolder1.Create(TextBox,"",True,3840,300,0,105,1755,True,0,"Arial",8,-2147483643,1)
+Gui.fSaleDate.cmdBrowse1.Create(Button)
+Gui.fSaleDate.cmdBrowse1.Size(345,315)
+Gui.fSaleDate.cmdBrowse1.Position(4200,1725)
+Gui.fSaleDate.cmdBrowse1.Caption("^")
+Gui.fSaleDate.cmdBrowse1.Event(Click,cmdBrowse1_Click)
+Gui.fSaleDate.lbl6.Create(Label,"Select Export Path",True,1935,255,0,90,1545,True,0,"Arial",8,-2147483633,0)
+Gui.fSaleDate.chkCurrSlsRep.Create(CheckBox)
+Gui.fSaleDate.chkCurrSlsRep.Size(4080,360)
+Gui.fSaleDate.chkCurrSlsRep.Position(105,2100)
+Gui.fSaleDate.chkCurrSlsRep.Caption("Use Customer's Current Sales Rep")
+Gui.fSalePart..Create
+Gui.fSalePart..Size(7110,3345)
+Gui.fSalePart..MinX(0)
+Gui.fSalePart..MinY(0)
+Gui.fSalePart..Position(0,0)
+Gui.fSalePart..BackColor(-2147483633)
+Gui.fSalePart..MousePointer(0)
+Gui.fSalePart..Caption("Sales By Sales Rep, Sort Code, Month, Year")
+Gui.fSalePart..Event(UnLoad,fSalePart_UnLoad)
+Gui.fSalePart.txt2folder1.Create(TextBox,"",True,3870,300,0,105,2010,True,0,"Arial",8,-2147483643,1)
+Gui.fSalePart.txt2folder1.Locked(True)
+Gui.fSalePart.cmd2browse1.Create(Button)
+Gui.fSalePart.cmd2browse1.Size(375,330)
+Gui.fSalePart.cmd2browse1.Position(4050,1980)
+Gui.fSalePart.cmd2browse1.Caption("^")
+Gui.fSalePart.cmd2browse1.Event(Click,cmd2browse1_Click)
+Gui.fSalePart.ddl2month1.Create(DropDownList)
+Gui.fSalePart.ddl2month1.Size(555,330)
+Gui.fSalePart.ddl2month1.Position(150,360)
+Gui.fSalePart.ddl2year1.Create(DropDownList)
+Gui.fSalePart.ddl2year1.Size(885,330)
+Gui.fSalePart.ddl2year1.Position(975,360)
+Gui.fSalePart.ddl2Month2.Create(DropDownList)
+Gui.fSalePart.ddl2Month2.Size(525,330)
+Gui.fSalePart.ddl2Month2.Position(2790,360)
+Gui.fSalePart.ddl2Year2.Create(DropDownList)
+Gui.fSalePart.ddl2Year2.Size(885,330)
+Gui.fSalePart.ddl2Year2.Position(3570,360)
+Gui.fSalePart.lbl1.Create(Label,"From :",True,825,255,0,105,165,True,0,"Arial",8,-2147483633,0)
+Gui.fSalePart.lbl2.Create(Label,"To :",True,825,255,0,2745,165,True,0,"Arial",8,-2147483633,0)
+Gui.fSalePart.ddl2SalesPsn1.Create(DropDownList)
+Gui.fSalePart.ddl2SalesPsn1.Size(2145,330)
+Gui.fSalePart.ddl2SalesPsn1.Position(150,1170)
+Gui.fSalePart.ddl2SalesPsn1.Event(Click,ddl2SalesPsn1_Click)
+Gui.fSalePart.lbl3.Create(Label,"Sales Rep ",True,990,255,0,105,960,True,0,"Arial",8,-2147483633,0)
+Gui.fSalePart.txt2SaleRepID.Create(TextBox,"",True,810,300,0,2790,1185,True,0,"Arial",8,-2147483626,1)
+Gui.fSalePart.txt2SaleRepID.Locked(True)
+Gui.fSalePart.cmd2Export2Xl.Create(Button)
+Gui.fSalePart.cmd2Export2Xl.Size(1710,375)
+Gui.fSalePart.cmd2Export2Xl.Position(105,2460)
+Gui.fSalePart.cmd2Export2Xl.Caption("Export to Excel")
+Gui.fSalePart.cmd2Export2Xl.Event(Click,cmd2Export2Xl_Click)
+Gui.fSalePart.lbl5.Create(Label,"Select Export Path",True,1620,255,0,105,1770,True,0,"Arial",8,-2147483633,0)
+Gui.fSalePart.lvwStCd1.Create(ListView)
+Gui.fSalePart.lvwStCd1.Size(1935,2160)
+Gui.fSalePart.lvwStCd1.Position(4950,150)
+Gui.fSalePart.lvwStCd1.View(3)
+Gui.fSalePart.lvwStCd1.BorderStyle(1)
+Gui.fSalePart.lvwStCd1.Multiselect(True)
+Gui.fSalePart.lvwStCd1.AddListViewColumn("Sort Code Selection",1600,0)
+Gui.fslsexp1..Create
+Gui.fslsexp1..Size(15360,4740)
+Gui.fslsexp1..MinX(0)
+Gui.fslsexp1..MinY(0)
+Gui.fslsexp1..Position(0,0)
+Gui.fslsexp1..BackColor(-2147483633)
+Gui.fslsexp1..MousePointer(0)
+Gui.fslsexp1..ControlBox(False)
+Gui.fslsexp1..MaxButton(False)
+Gui.fslsexp1..MinButton(False)
+Gui.fslsexp1..Moveable(False)
+Gui.fslsexp1..Sizeable(False)
+Gui.fslsexp1..ShowInTaskBar(False)
+Gui.fslsexp1..TitleBar(False)
+Gui.fslsexp1.GCsls1.Create(GsGridControl)
+Gui.fslsexp1.GCsls1.Size(15045,4155)
+Gui.fslsexp1.GCsls1.Position(75,45)
+Gui.fslsexp2..Create
+Gui.fslsexp2..Size(15360,5415)
+Gui.fslsexp2..MinX(0)
+Gui.fslsexp2..MinY(0)
+Gui.fslsexp2..Position(0,0)
+Gui.fslsexp2..BackColor(-2147483633)
+Gui.fslsexp2..MousePointer(0)
+Gui.fslsexp2..ControlBox(False)
+Gui.fslsexp2..MaxButton(False)
+Gui.fslsexp2..MinButton(False)
+Gui.fslsexp2..Moveable(False)
+Gui.fslsexp2..Sizeable(False)
+Gui.fslsexp2..ShowInTaskBar(False)
+Gui.fslsexp2..TitleBar(False)
+Gui.fslsexp2.gcsls2.Create(GsGridControl)
+Gui.fslsexp2.gcsls2.Size(15105,4830)
+Gui.fslsexp2.gcsls2.Position(15,15)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+f.Intrinsic.Control.Try
+
+
+f.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+f.Intrinsic.Control.If(v.caller.Switches,=,"1")
+	f.Intrinsic.Control.CallSub(sales1)
+f.intrinsic.control.Else
+	f.Intrinsic.Control.CallSub(sales2)
+f.intrinsic.Control.EndIf
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.Main.End
+
+Program.Sub.Sales1.Start
+F.Intrinsic.Control.Try
+
+'created dictionaries for dropdowns on form
+f.data.datatable.CreateFromSQL("MonthTB","conx","select distinct month(date_invoice) as Month from V_ORDER_HIST_LINE",true)
+gui.fSaleDate.ddlMonth1.additems("datatable","MonthTB","month","month")
+'f.data.datatable.CreateFromSQL("MonthTB2","conx","select distinct month(date_invoice) as Month from V_ORDER_HIST_LINE")
+'gui.fSaleDate.ddl2Month2.additems("datatable","MonthTB2","","month")
+f.data.datatable.CreateFromSQL("YearTB1","conx","select distinct Year(date_invoice) as Year from V_ORDER_HIST_LINE order by year asc",true)
+gui.fSaleDate.ddlYear1.additems("datatable","YearTB1","Year","Year")
+f.data.datatable.CreateFromSQL("YearTB2","conx","select distinct Year(date_invoice) as Year from V_ORDER_HIST_LINE order by year desc",true)
+gui.fSaleDate.ddlYear2.additems("datatable","YearTB2","Year","Year")
+f.data.Dictionary.CreateFromSQL("SaleRep","conx","Select ID,RTRIM(Name) as Name from V_SALESPERSONS")
+f.Data.Dictionary.SetDefaultReturn("SaleRep","")
+gui.fSaleDate.ddlSalesPsn1.AddItems("Dictionary","SaleRep")
+gui.fSaleDate.txtSaleRepID.addautocompleteitem("SaleRep","Dictionary")
+gui.fSaleDate..Show
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.Sales1.End
+
+Program.Sub.ddlSalesPsn1_Click.Start
+f.Intrinsic.Control.Try
+v.Local.sHold.Declare(String)
+
+f.data.Dictionary.returnkeyfromvalue("SaleRep", v.Args.selecteditem, v.Local.sHold)
+gui.fSaleDate.txtSaleRepID.Text(v.Local.sHold)
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.ddlSalesPsn1_Click.End
+
+Program.Sub.cmdBrowse1_Click.Start
+f.intrinsic.control.try
+v.local.sFolder.Declare(string)
+f.Intrinsic.UI.FolderBrowser("Select a Destination Folder",v.Local.sFolder)
+f.Intrinsic.Control.If(v.Local.sFolder,<>,"***CANCEL***")
+	gui.fSaleDate.txtFolder1.Text(v.Local.sFolder)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.cmdBrowse1_Click.End
+
+Program.Sub.fSaleDate_UnLoad.Start
+f.ODBC.Connection!conx.close
+f.Intrinsic.Control.End
+
+Program.Sub.fSaleDate_UnLoad.End
+
+Program.Sub.cmdExport2Xl_Click.Start
+v.Local.iCount.Declare(long)
+v.Local.iRange.Declare(long)
+v.Local.sSQL.Declare(String)
+v.Local.sOutFile.Declare(String)
+v.Local.sMonthHd.Declare(String)
+v.Local.sHeaderLb.Declare(String)
+v.Local.sHeaderLb1.Declare(String)
+v.Local.sHeaderLb2.Declare(String)
+v.Local.sYear.Declare(String)
+v.Local.sCalc.Declare(String)
+v.Local.sCol.Declare(String)
+v.Local.sOutTbl.Declare(String)
+v.Local.bCheck.Declare(boolean)
+v.Local.sMsg.Declare(string)
+
+f.Intrinsic.Control.Try
+gui.fSaleDate..Enabled(false)
+f.Intrinsic.UI.InvokeWaitDialog("Compiling Data for report","Generating Report")
+'check if validity of entry fields
+f.intrinsic.control.if(v.Screen.fSaleDate!ddlYear1.text,>,v.Screen.fSaleDate!ddlYear2.text)
+	f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.UI.Msgbox("From Year cannot be greater than the to Year.","Incorrect Year Entry!")
+	gui.fSaleDate..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+f.intrinsic.control.if(v.Screen.fSaleDate!txtSaleRepID.text,=,"")
+	f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.UI.Msgbox("Please Select a Sales Rep.","Sales Rep Not Selected!")
+	gui.fSaleDate..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+
+f.intrinsic.control.if(v.Screen.fSaleDate!txtFolder1.text,=,"")
+	f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.UI.Msgbox("Please Select a Destination Folder.","Destination Path Missing!")
+	gui.fSaleDate..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+
+'set month header caption based on month selected
+
+f.Intrinsic.Control.If(v.Screen.fSaleDate!ddlMonth1.text,=,1)
+	v.Local.sMonthHd.Set("January")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,2)
+	v.Local.sMonthHd.Set("February")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,3)
+	v.Local.sMonthHd.Set("March")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,4)
+	v.Local.sMonthHd.Set("April")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,5)
+	v.Local.sMonthHd.Set("May")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,6)
+	v.Local.sMonthHd.Set("June")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,7)
+	v.Local.sMonthHd.Set("July")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,8)
+	v.Local.sMonthHd.Set("August")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,9)
+	v.Local.sMonthHd.Set("September")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,10)
+	v.Local.sMonthHd.Set("October")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,11)
+	v.Local.sMonthHd.Set("November")
+f.Intrinsic.Control.elseIf(v.Screen.fSaleDate!ddlMonth1.text,=,12)
+	v.Local.sMonthHd.Set("December")
+f.Intrinsic.Control.EndIf
+
+
+'create customer, salespsn,custstate,custcity dictionaries
+
+f.Data.Dictionary.CreateFromSQL("CustName","conx","select customer,RTRIM(name_customer) as name_customer from V_CUSTOMER_MASTER")
+f.Data.Dictionary.SetDefaultReturn("CustName","")
+f.Data.Dictionary.CreateFromSQL("SalePsn","conx","select ID,RTRIM(Name) as Name from V_SALESPERSONS")
+f.Data.Dictionary.SetDefaultReturn("SalePsn","")
+f.Data.Dictionary.CreateFromSQL("CustCity","conx","select customer,RTRIM(city) as city from V_CUSTOMER_MASTER")
+f.Data.Dictionary.SetDefaultReturn("CustCity","")
+f.Data.dictionary.CreateFromSQL("CustState","conx","select customer,RTRIM(state) as State from V_CUSTOMER_MASTER")
+f.Data.dictionary.SetDefaultReturn("CustState","")
+v.Local.sYear.Set(v.Screen.fSaleDate!ddlYear2.text)
+
+
+'create data table with all customers for a sales person
+
+f.Intrinsic.Control.If(v.Screen.fSaleDate!chkCurrSlsRep.CheckedAsBoolean,=,false)
+
+	f.Intrinsic.string.Build("select Distinct customer, RTRIM(' ') as Customer_Name, SalesPerson, RTRIM(' ') as SP_Name, customer + '-' + salesperson as ID, RTRIM(' ') as City, RTRIM(' ') as State from v_ORDER_HIST_LINE where salesperson = '{0}'",v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	f.data.DataTable.CreateFromSQL("ReportMain","conx",v.Local.sSQL)
+	
+	'fill associated values from dictionary
+	f.Data.datatable.FillFromDictionary("ReportMain","CustName","Customer","Customer_Name")
+	f.Data.datatable.FillFromDictionary("ReportMain","SalePsn","SalesPerson","SP_Name")
+	f.Data.datatable.FillFromDictionary("ReportMain","CustCity","Customer","City")
+	f.Data.datatable.FillFromDictionary("ReportMain","CustState","Customer","State")
+	
+	'f.Intrinsic.string.Build("Select Customer, RTRIM(' ') as Customer_Name, SalesPerson, RTRIM(' ') as SP_Name,(select distinct customer + '-' + salesperson from v_ORDER_HIST_LINE as A where b.customer = a.customer and b.salesperson = a.salesperson) as ID ,Sum(total_sale) as {0} from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE group by salesperson,customer,Month,Year) as B where month = '{1}' and year = '{2}' and salesperson = '{3}' group by Salesperson, customer",v.Local.sHeaderLb,v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	'f.data.DataTable.CreateFromSQL("ReportMain","conx",v.Local.sSQL)
+	
+	'for the from year, get total sales for selected month
+	'f.Intrinsic.string.build("Select Customer + '-' + SalesPerson as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month = '{0}' and year = '{1}' and salesperson = '{2}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	'We're going to try and simply the query, hopefully this doesn't break anything. The previous query above was erroring out for whatever reason on the customers end so we're hoping removing the inner query fixes the issue.
+	F.Intrinsic.String.Build("SELECT CUSTOMER + '-' + SALESPERSON AS ID, SUM(Extension) AS TOTAL_SALE FROM V_ORDER_HIST_LINE WHERE LINE_TYPE = 'S' AND Month(DATE_INVOICE) = '{0}' AND YEAR(DATE_INVOICE) = '{1}' AND SALESPERSON = '{2}' GROUP BY ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	f.data.Dictionary.CreateFromSQL("MnthTot","conx",v.Local.sSQL)
+	f.Data.Dictionary.SetDefaultReturn("MnthTot",0)
+	f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+	f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+	f.Data.datatable.FillFromDictionary("ReportMain","MnthTot","ID",v.Local.sHeaderLb)
+	f.Data.Dictionary.Close("MnthTot")
+	
+	'for the from year, get total sales upto the selected month
+	
+	'f.Intrinsic.string.build("Select Customer + '-' + SalesPerson as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month <= '{0}' and year = '{1}' and salesperson = '{2}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	f.Intrinsic.string.build("SELECT CUSTOMER + '-' + SALESPERSON AS ID, SUM(Extension) AS TOTAL_SALE FROM V_ORDER_HIST_LINE WHERE LINE_TYPE = 'S' AND Month(DATE_INVOICE) <= '{0}' AND YEAR(DATE_INVOICE) = '{1}' AND SALESPERSON = '{2}' GROUP BY ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	f.Data.Dictionary.CreateFromSQL("YTDMnth","conx",v.Local.sSQL)
+	f.Data.Dictionary.SetDefaultReturn("YTDMnth",0)
+	f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+	f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+	f.Data.datatable.FillFromDictionary("ReportMain","YTDMnth","ID",v.Local.sHeaderLb)
+	f.Data.Dictionary.Close("YTDMnth")
+	
+	
+	'check if its a multi year selection
+	
+	f.intrinsic.math.sub(v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!ddlYear1.text,v.Local.iRange)
+	f.intrinsic.Control.If(v.Local.iRange,<>,0)
+		'loop through next year
+		f.Intrinsic.Control.For(v.Local.iCount,1,v.Local.iRange,1)
+			f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb1)
+			f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb2)
+			
+			f.Intrinsic.Math.Sub(v.Local.sYear,1,v.Local.sYear)
+			'get total sales for the selected month in the next year
+			'f.Intrinsic.string.Build("Select Customer + '-' + SalesPerson as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month = '{0}' and year = '{1}' and salesperson = '{2}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+			F.Intrinsic.String.Build("SELECT CUSTOMER + '-' + SALESPERSON AS ID, SUM(extension) AS TOTAL_SALE FROM V_ORDER_HIST_LINE WHERE LINE_TYPE = 'S' AND MONTH(DATE_INVOICE) = '{0}' AND YEAR(DATE_INVOICE) = '{1}' AND SALESPERSON = '{2}' GROUP BY ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+			f.data.Dictionary.CreateFromSQL("MnthTot","conx",v.Local.sSQL)
+			f.Data.Dictionary.SetDefaultReturn("MnthTot",0)
+			f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+			f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+			f.Data.datatable.FillFromDictionary("ReportMain","MnthTot","ID",v.Local.sHeaderLb)
+			f.Data.Dictionary.Close("MnthTot")
+			
+			
+			f.intrinsic.string.Build("IIF({0} = 0 and {1} = 0,0,IIF({2} = 0,(({3} - {4})/{5})*100,(({6} - {7})/{8})*100))",v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sCalc)
+			f.Intrinsic.String.Build("%_Change_{0}",v.Local.sYear,v.Local.sCol)
+			f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+			
+	'		f.intrinsic.string.Build("(({0} - {1})/{2})*100",v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sCalc)
+	'		f.Intrinsic.String.Build("%_Change_{0}",v.Local.sYear,v.Local.sCol)
+	'		f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+			
+			'get total sales upto the selected month in the next year
+			
+			'f.Intrinsic.string.build("Select Customer + '-' + SalesPerson as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month <= '{0}' and year = '{1}' and salesperson = '{2}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+			F.Intrinsic.String.Build("SELECT CUSTOMER + '-' + SALESPERSON AS ID, SUM(extension) AS TOTAL_SALE FROM V_ORDER_HIST_LINE WHERE LINE_TYPE = 'S' AND MONTH(DATE_INVOICE) <= '{0}' AND YEAR(DATE_INVOICE) = '{1}' AND SALESPERSON = '{2}' GROUP BY ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+			f.Data.Dictionary.CreateFromSQL("YTDMnth","conx",v.Local.sSQL)
+			f.Data.Dictionary.SetDefaultReturn("YTDMnth",0)
+			f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+			f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+			f.Data.datatable.FillFromDictionary("ReportMain","YTDMnth","ID",v.Local.sHeaderLb)
+			f.Data.Dictionary.Close("YTDMnth")
+			f.intrinsic.string.Build("IIF({0} = 0 and {1} = 0,0,IIF({2} = 0,(({3} - {4})/{5})*100,(({6} - {7})/{8})*100))",v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sCalc)
+			f.Intrinsic.String.Build("%_Change_YTD_{0}",v.Local.sYear,v.Local.sCol)
+			f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+	'		f.intrinsic.string.Build("(({0} - {1})/{2})*100",v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sCalc)
+	'		f.Intrinsic.String.Build("%_Change_YTD_{0}",v.Local.sYear,v.Local.sCol)
+	'		f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+		f.Intrinsic.Control.Next(v.Local.iCount)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Else
+	
+	f.Intrinsic.string.Build("select Distinct customer, RTRIM(' ') as Customer_Name, SalesPerson, RTRIM(' ') as SP_Name, customer as ID, RTRIM(' ') as City, RTRIM(' ') as State from v_ORDER_HIST_LINE where salesperson = '{0}' and customer in (select distinct customer from v_CUSTOMER_MASTER where salesperson = '{1}')",v.Screen.fSaleDate!txtSaleRepID.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	f.data.DataTable.CreateFromSQL("ReportMain","conx",v.Local.sSQL)
+	
+	'fill associated values from dictionary
+	f.Data.datatable.FillFromDictionary("ReportMain","CustName","Customer","Customer_Name")
+	f.Data.datatable.FillFromDictionary("ReportMain","SalePsn","SalesPerson","SP_Name")
+	f.Data.datatable.FillFromDictionary("ReportMain","CustCity","Customer","City")
+	f.Data.datatable.FillFromDictionary("ReportMain","CustState","Customer","State")
+	
+	'f.Intrinsic.string.Build("Select Customer, RTRIM(' ') as Customer_Name, SalesPerson, RTRIM(' ') as SP_Name,(select distinct customer + '-' + salesperson from v_ORDER_HIST_LINE as A where b.customer = a.customer and b.salesperson = a.salesperson) as ID ,Sum(total_sale) as {0} from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE group by salesperson,customer,Month,Year) as B where month = '{1}' and year = '{2}' and salesperson = '{3}' group by Salesperson, customer",v.Local.sHeaderLb,v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!txtSaleRepID.text,v.Local.sSQL)
+	'f.data.DataTable.CreateFromSQL("ReportMain","conx",v.Local.sSQL)
+	
+	'for the from year, get total sales for selected month
+	'f.Intrinsic.string.build("Select Customer as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month = '{0}' and year = '{1}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT Customer As ID, Sum(extension) As Total_Sale From V_ORDER_HIST_LINE WHERE Line_Type = 'S' AND Month(Date_Invoice) = '{0}' AND Year(Date_Invoice) = '{1}' Group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+	f.data.Dictionary.CreateFromSQL("MnthTot","conx",v.Local.sSQL)
+	f.Data.Dictionary.SetDefaultReturn("MnthTot",0)
+	f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+	f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+	f.Data.datatable.FillFromDictionary("ReportMain","MnthTot","ID",v.Local.sHeaderLb)
+	f.Data.Dictionary.Close("MnthTot")
+	
+	'for the from year, get total sales upto the selected month
+	
+	'f.Intrinsic.string.build("Select Customer as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month <= '{0}' and year = '{1}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT Customer As ID, Sum(extension) As Total_Sale From V_ORDER_HIST_LINE WHERE Line_Type = 'S' AND Month(Date_Invoice) <= '{0}' AND Year(Date_Invoice) = '{1}' Group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+	f.Data.Dictionary.CreateFromSQL("YTDMnth","conx",v.Local.sSQL)
+	f.Data.Dictionary.SetDefaultReturn("YTDMnth",0)
+	f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+	f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+	f.Data.datatable.FillFromDictionary("ReportMain","YTDMnth","ID",v.Local.sHeaderLb)
+	f.Data.Dictionary.Close("YTDMnth")
+	
+	
+	'check if its a multi year selection
+	
+	f.intrinsic.math.sub(v.Screen.fSaleDate!ddlYear2.text,v.Screen.fSaleDate!ddlYear1.text,v.Local.iRange)
+	f.intrinsic.Control.If(v.Local.iRange,<>,0)
+		'loop through next year
+		f.Intrinsic.Control.For(v.Local.iCount,1,v.Local.iRange,1)
+			f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb1)
+			f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb2)
+			
+			f.Intrinsic.Math.Sub(v.Local.sYear,1,v.Local.sYear)
+			'get total sales for the selected month in the next year
+			'f.Intrinsic.string.Build("Select Customer as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month = '{0}' and year = '{1}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Local.sSQL)
+			F.Intrinsic.String.Build("SELECT Customer As ID, Sum(extension) As Total_Sale From V_ORDER_HIST_LINE WHERE Line_Type = 'S' AND Month(Date_Invoice) = '{0}' AND Year(Date_Invoice) = '{1}' Group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+			f.data.Dictionary.CreateFromSQL("MnthTot","conx",v.Local.sSQL)
+			f.Data.Dictionary.SetDefaultReturn("MnthTot",0)
+			f.Intrinsic.String.Build("{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+			f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+			f.Data.datatable.FillFromDictionary("ReportMain","MnthTot","ID",v.Local.sHeaderLb)
+			f.Data.Dictionary.Close("MnthTot")
+			
+			
+			f.intrinsic.string.Build("IIF({0} = 0 and {1} = 0,0,IIF({2} = 0,(({3} - {4})/{5})*100,(({6} - {7})/{8})*100))",v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sCalc)
+			f.Intrinsic.String.Build("%_Change_{0}",v.Local.sYear,v.Local.sCol)
+			f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+			
+	'		f.intrinsic.string.Build("(({0} - {1})/{2})*100",v.Local.sHeaderLb1,v.Local.sHeaderLb,v.Local.sHeaderLb1,v.Local.sCalc)
+	'		f.Intrinsic.String.Build("%_Change_{0}",v.Local.sYear,v.Local.sCol)
+	'		f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+			
+			'get total sales upto the selected month in the next year
+			
+			'f.Intrinsic.string.build("Select Customer as ID,Sum(total_sale) as Total_Sale from (select customer,salesperson,sum(extension) as Total_Sale,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where line_type = 'S' group by salesperson,customer,Month,Year) as B where month <= '{0}' and year = '{1}' group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.local.sYear,v.Local.sSQL)
+			F.Intrinsic.String.Build("SELECT Customer As ID, Sum(extension) As Total_Sale From V_ORDER_HIST_LINE WHERE Line_Type = 'S' AND Month(Date_Invoice) <= '{0}' AND Year(Date_Invoice) = '{1}' Group by ID",v.Screen.fSaleDate!ddlMonth1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sSQL)
+			f.Data.Dictionary.CreateFromSQL("YTDMnth","conx",v.Local.sSQL)
+			f.Data.Dictionary.SetDefaultReturn("YTDMnth",0)
+			f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sMonthHd,v.Local.sYear,v.Local.sHeaderLb)
+			f.Data.DataTable.AddColumn("ReportMain",v.Local.sHeaderLb,"float")
+			f.Data.datatable.FillFromDictionary("ReportMain","YTDMnth","ID",v.Local.sHeaderLb)
+			f.Data.Dictionary.Close("YTDMnth")
+			f.intrinsic.string.Build("IIF({0} = 0 and {1} = 0,0,IIF({2} = 0,(({3} - {4})/{5})*100,(({6} - {7})/{8})*100))",v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb,v.Local.sCalc)
+			f.Intrinsic.String.Build("%_Change_YTD_{0}",v.Local.sYear,v.Local.sCol)
+			f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+	'		f.intrinsic.string.Build("(({0} - {1})/{2})*100",v.Local.sHeaderLb2,v.Local.sHeaderLb,v.Local.sHeaderLb2,v.Local.sCalc)
+	'		f.Intrinsic.String.Build("%_Change_YTD_{0}",v.Local.sYear,v.Local.sCol)
+	'		f.Data.DataTable.AddExpressionColumn("ReportMain",v.Local.sCol,"float",v.Local.sCalc)
+			
+		f.Intrinsic.Control.Next(v.Local.iCount)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+f.data.Datatable.RemoveColumn("ReportMain","ID")
+
+
+f.intrinsic.String.Build("{0}\{1}_{2}_{3}_{4}.xlsx",v.Screen.fSaleDate!txtFolder1.text,v.Screen.fSaleDate!ddlSalesPsn1.text,v.Local.sMonthHd,v.Screen.fSaleDate!ddlYear1.text,v.Screen.fSaleDate!ddlYear2.text,v.Local.sOutFile)
+f.Intrinsic.File.Exists(v.Local.sOutFile, v.Local.bCheck)
+f.intrinsic.Control.If(v.Local.bCheck,=,true)
+	f.Intrinsic.String.Build("The file {0} already exists and will be overwritten. Copy existing file to another folder before clicking OK to create a backup",v.Local.sOutFile,v.Local.sMsg)
+	f.Intrinsic.UI.Msgbox(v.Local.sMsg)
+f.Intrinsic.Control.EndIf
+
+'f.Data.DataTable.SaveToCSV("ReportMain",v.Local.sOutFile,true)
+f.Data.DataView.Create("ReportMain","RptMn",22)
+
+Gui.fslsexp1.GCsls1.AddGridviewFromDataview("exp_grid","ReportMain", "RptMn")
+
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "customer", "Caption", "Customer ID")
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "customer", "headerfontbold", True)
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "Customer_name", "Caption", "Customer Name")
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "Customer_name", "headerfontbold", True)
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "Salesperson", "Caption", "Sales Rep ID")
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "Salesperson", "headerfontbold", True)
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "SP_Name", "Caption", "Sales Rep Name")
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "SP_Name", "headerfontbold", True)
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "City", "headerfontbold", True)
+Gui.fslsexp1.GCsls1.SetColumnProperty("exp_grid", "State", "headerfontbold", True)
+gui.fslsexp1.GCsls1.MainView("exp_grid")
+f.Intrinsic.UI.CloseWaitDialog
+gui.fslsexp1..Show
+gui.fslsexp1.GCsls1.Export(v.Local.sOutFile,"xlsx")
+gui.fslsexp1..visible(false)
+f.Intrinsic.String.Build("The report has beeen successfully exported to file {0}",v.Local.sOutFile,v.Local.sMsg)
+f.Intrinsic.UI.Msgbox(v.Local.sMsg)
+
+
+
+
+
+
+
+'f.Data.DataView.ToString("reportmain","rptmn","*!*","$!$",v.Local.sOutTbl)
+
+'f.Automation.MSExcel.WriteSpreadsheet(v.Local.sOutFile,v.Local.sOutTBl)
+
+f.Intrinsic.Control.end
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.cmdExport2Xl_Click.End
+
+Program.Sub.Sales2.Start
+f.Intrinsic.Control.Try
+'created dictionaries for dropdowns on form
+
+f.data.datatable.CreateFromSQL("Month1TB1","conx","select distinct month(date_invoice) as Month from V_ORDER_HIST_LINE",true)
+gui.fSalePart.ddl2Month1.additems("datatable","Month1TB1","month","month")
+f.data.datatable.CreateFromSQL("Month1TB2","conx","select distinct month(date_invoice) as Month from V_ORDER_HIST_LINE",true)
+gui.fSalePart.ddl2Month2.additems("datatable","Month1TB2","month","month")
+f.data.datatable.CreateFromSQL("Year1TB1","conx","select distinct Year(date_invoice) as Year from V_ORDER_HIST_LINE order by year asc",true)
+gui.fSalePart.ddl2Year1.additems("datatable","Year1TB1","year","Year")
+f.data.datatable.CreateFromSQL("Year1TB2","conx","select distinct Year(date_invoice) as Year from V_ORDER_HIST_LINE order by year desc",true)
+gui.fSalePart.ddl2Year2.additems("datatable","Year1TB2","year","Year")
+f.data.Dictionary.CreateFromSQL("SaleRep1","conx","Select ID,RTRIM(Name) as Name from V_SALESPERSONS")
+f.Data.Dictionary.SetDefaultReturn("SaleRep1","")
+gui.fSalePart.ddl2SalesPsn1.AddItems("Dictionary","SaleRep1")
+gui.fSalePart.txt2SaleRepID.addautocompleteitem("SaleRep1","Dictionary")
+f.data.Dictionary.CreateFromSQL("PL1","conx","select Product_line,RTRIM(Product_line_name) as Product_line_Name from V_PRODUCT_LINE")
+f.Data.Dictionary.SetDefaultReturn("PL1","")
+gui.fSalePart.ddl2PL1.AddItems("Dictionary","PL1")
+gui.fSalePart.txt2PL1.addautocompleteitem("PL1","Dictionary")
+gui.fSalePart.lvwStCd1.ClearItems
+f.ODBC.Connection!conx.openlocalrecordsetRO("rststcd","select distinct code_sort from V_INVENTORY_MSTR")
+f.Intrinsic.Control.DoUntil(v.ODBC.conx!rststcd.EOF,=,true)
+	gui.fSalePart.lvwStCd1.AddListItem(v.odbc.conx!rststcd.FieldVal!code_sort,v.odbc.conx!rststcd.FieldVal!code_sort)
+	f.ODBC.conx!rststcd.MoveNext
+f.intrinsic.Control.Loop
+gui.fSalePart..Show
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+
+Program.Sub.Sales2.End
+
+Program.Sub.ddl2SalesPsn1_Click.Start
+f.Intrinsic.Control.Try
+v.Local.sHold.Declare(String)
+
+f.data.Dictionary.returnkeyfromvalue("SaleRep1", v.Args.selecteditem, v.Local.sHold)
+gui.fSalepart.txt2SaleRepID.Text(v.Local.sHold)
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+Program.Sub.ddl2SalesPsn1_Click.End
+
+Program.Sub.ddl2PL1_Click.Start
+f.Intrinsic.Control.Try
+v.Local.sHold.Declare(String)
+
+f.data.Dictionary.returnkeyfromvalue("PL1", v.Args.selecteditem, v.Local.sHold)
+gui.fSalepart.txt2PL1.Text(v.Local.sHold)
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+Program.Sub.ddl2PL1_Click.End
+
+Program.Sub.cmd2browse1_Click.Start
+f.Intrinsic.Control.Try
+v.local.sFolder.Declare(string)
+f.Intrinsic.UI.FolderBrowser("Select a Destination Folder",v.Local.sFolder)
+f.Intrinsic.Control.If(v.Local.sFolder,<>,"***CANCEL***")
+	gui.fSalePart.txt2Folder1.Text(v.Local.sFolder)
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmd2browse1_Click.End
+
+Program.Sub.fSalePart_UnLoad.Start
+f.ODBC.Connection!conx.close
+f.Intrinsic.Control.End
+Program.Sub.fSalePart_UnLoad.End
+
+Program.Sub.cmd2Export2Xl_Click.Start
+v.Local.iCount.Declare(long)
+v.Local.iCount2.Declare(long)
+v.Local.iRange.Declare(long)
+v.Local.sSQL.Declare(String)
+v.Local.sOutFile.Declare(String)
+v.Local.sMonthHd.Declare(String)
+v.Local.sHeaderLb.Declare(String)
+v.Local.sHeaderLb1.Declare(String)
+v.Local.sHeaderLb2.Declare(String)
+v.Local.iYear1.Declare(long)
+v.Local.iYear2.Declare(long)
+v.Local.imonth1.Declare(long)
+v.Local.imonth2.Declare(long)
+v.Local.sMonth.Declare(string)
+v.Local.sYTD.Declare(string)
+v.Local.sCalc.Declare(String)
+v.Local.sCol.Declare(String)
+v.Local.iMntRng.declare(long)
+v.Local.sHold.Declare(string)
+v.Local.iYTD.Declare(String)
+v.Local.sOutTbl.Declare(String)
+v.Local.bCheck.Declare(boolean)
+v.Local.sMsg.Declare(string)
+v.Local.sLstvw.Declare(string)
+f.Intrinsic.Control.Try
+gui.fSalePart..Enabled(false)
+f.Intrinsic.UI.InvokeWaitDialog("Compiling Data for report","Generating Report")
+'check validity of entry data from form
+gui.fSalepart.lvwStCd1.RetrieveSelectedListItems(v.Local.sLstvw)
+f.intrinsic.control.if(v.Local.sLstvw,=,"***NORETURN***")
+	f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.UI.Msgbox("Atleast one sort code should be selected to generate a Report")
+	gui.fSalePart..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+
+f.intrinsic.control.if(v.Screen.fSalePart!ddl2Year1.text,>,v.Screen.fSalePart!ddl2Year2.text)
+f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.UI.Msgbox("From Year cannot be greater than the to Year.","Incorrect Year Entry!")
+	gui.fSalePart..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+f.intrinsic.control.if(v.Screen.fSalePart!ddl2Year1.text,=,v.Screen.fSalePart!ddl2Year2.text)
+	f.Intrinsic.Control.If(v.Screen.fSalePart!ddl2month1.text,>,v.Screen.fSalePart!ddl2Month2.text)
+		f.Intrinsic.UI.CloseWaitDialog
+		f.Intrinsic.UI.Msgbox("From Month cannot be greater than the to Month in the same year.","Incorrect Month Entry!")
+		gui.fSalePart..Enabled(true)
+		f.Intrinsic.Control.ExitSub
+	F.Intrinsic.control.EndIf
+F.Intrinsic.control.EndIf
+
+f.intrinsic.control.if(v.Screen.fSalePart!txt2SaleRepID.text,=,"")
+	f.Intrinsic.UI.Msgbox("Please Select a Sales Rep.","Sales Rep Not Selected!")
+	f.Intrinsic.UI.CloseWaitDialog
+	gui.fSalePart..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+
+f.intrinsic.control.if(v.Screen.fSalePart!txt2Folder1.text,=,"")
+	f.Intrinsic.UI.Msgbox("Please Select a Destination Folder.","Destination Path Missing!")
+	f.Intrinsic.UI.CloseWaitDialog
+	gui.fSalePart..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+F.Intrinsic.control.EndIf
+
+f.intrinsic.String.Build("{0}\{1}_{2}_{3}_to_{4}_{5}.xlsx",v.Screen.fSalePart!txt2folder1.text,v.Screen.fSalePart!ddl2SalesPsn1.text,v.Local.imonth1,v.Local.iYear1,v.Local.imonth2,v.Local.iYear2,v.Local.sOutFile)
+f.Intrinsic.File.Exists(v.Local.sOutFile, v.Local.bCheck)
+f.intrinsic.Control.If(v.Local.bCheck,=,true)
+	f.Intrinsic.UI.CloseWaitDialog
+	f.Intrinsic.String.Build("The file {0} already exists. Please move it to another location or rename it before exporting the current report.",v.Local.sOutFile,v.Local.sMsg)
+	f.Intrinsic.UI.Msgbox(v.Local.sMsg)
+	gui.fSalePart..Enabled(true)
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+
+f.Intrinsic.String.Replace(v.Local.sLstvw,"*!*","','",v.Local.sLstvw)
+f.Intrinsic.String.Build("'{0}'",v.Local.sLstvw,v.Local.sLstvw)
+
+'build dictionaries for cust name, cust state, part desc
+
+f.Data.Dictionary.CreateFromSQL("CustName1","conx","select RTRIM(customer) as Customer,RTRIM(name_customer) as Name_Customer from V_CUSTOMER_MASTER")
+f.Data.Dictionary.SetDefaultReturn("CustName1","")
+f.Data.dictionary.CreateFromSQL("CustState1","conx","select RTRIM(customer) as Customer,RTRIM(state) as State from V_CUSTOMER_MASTER")
+f.Data.dictionary.SetDefaultReturn("CustState1","")
+f.Data.dictionary.CreateFromSQL("PartDesc","conx","select RTRIM(part) as part, RTRIM(Description) as Description from v_inventory_mstr")
+f.Data.dictionary.SetDefaultReturn("PartDesc","")
+f.Data.Dictionary.CreateFromSQL("sortcode","conx","select RTRIM(part) as part,code_sort from V_INVENTORY_MSTR ")
+f.Data.dictionary.SetDefaultReturn("sortcode","")
+
+'Create table and fill from dictionary
+
+f.Intrinsic.string.Build("Select Distinct RTRIM(Part) as part, RTRIM(Customer) as customer,RTRIM(' ') as Customer_Nm ,RTRIM(' ') as Description ,RTRIM(' ') as State ,RTRIM(' ') as sort_code, part + '-' + customer as ID from V_ORDER_HIST_LINE where salesperson = '{0}' and part in (select Part from V_INVENTORY_MSTR where code_sort in ({1}))",v.Screen.fSalePart!txt2SaleRepID.text,v.Local.sLstvw,v.Local.sSQL)
+f.data.DataTable.CreateFromSQL("ReportMain1","conx",v.Local.sSQL)
+f.Data.datatable.FillFromDictionary("ReportMain1","CustName1","Customer","Customer_Nm")
+f.Data.datatable.FillFromDictionary("ReportMain1","PartDesc","part","Description")
+f.Data.datatable.FillFromDictionary("ReportMain1","CustState1","Customer","State")
+f.Data.datatable.FillFromDictionary("ReportMain1","sortcode","part","sort_code")
+
+f.Data.Dictionary.Create("MonthRef")
+f.Data.Dictionary.AddItem("MonthRef","January","1")
+f.Data.Dictionary.AddItem("MonthRef","February","2")
+f.Data.Dictionary.AddItem("MonthRef","March","3")
+f.Data.Dictionary.AddItem("MonthRef","April","4")
+f.Data.Dictionary.AddItem("MonthRef","May","5")
+f.Data.Dictionary.AddItem("MonthRef","June","6")
+f.Data.Dictionary.AddItem("MonthRef","July","7")
+f.Data.Dictionary.AddItem("MonthRef","August","8")
+f.Data.Dictionary.AddItem("MonthRef","September","9")
+f.Data.Dictionary.AddItem("MonthRef","October","10")
+f.Data.Dictionary.AddItem("MonthRef","November","11")
+f.Data.Dictionary.AddItem("MonthRef","December","12")
+
+
+
+v.Local.iYear1.Set(v.Screen.fSalePart!ddl2Year1.text)
+v.Local.iYear2.set(v.Screen.fSalePart!ddl2Year2.text)
+v.Local.imonth1.Set(v.screen.fSalePart!ddl2month1.text)
+v.Local.imonth2.Set(v.screen.fSalePart!ddl2month2.text)
+v.Local.iMntRng.Set(12)
+'first loop through from year - to year	
+f.Intrinsic.Control.For(v.Local.iCount,v.Local.iYear1,v.Local.iYear2,1)
+	f.Intrinsic.Control.for(v.Local.iCount2,1,v.Local.iMntRng,1)
+		'at start of loop through the first year, set the second loop count to  begin count from selected month
+		f.Intrinsic.Control.if(v.local.icount2,=,1)
+			f.Intrinsic.Control.If(v.Local.iCount,=,v.Local.iYear1)
+				v.Local.iCount2.Set(v.local.imonth1)		
+			f.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.EndIf
+		
+		'Get total quantity shipped for that month and that year and add column
+		
+
+		'f.intrinsic.String.Build("Select Part + '-' + Customer as ID, Sum(qty_shipped)as Qty_Shipped from (select  part, customer,salesperson,Sum(qty_shipped) as Qty_Shipped,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where salesperson = '{0}' and part in (select Part from V_INVENTORY_MSTR where code_sort in ({1})) group by salesperson,customer,part,Month,Year) as B where month = '{2}' and year = '{3}' group by ID",v.Screen.fSalePart!txt2SaleRepID.text,v.Local.sLstvw,v.Local.iCount2,v.Local.icount,v.Local.sSQL)
+		F.Intrinsic.String.Build("SELECT PART + '-' + CUSTOMER AS ID, SUM(QTY_SHIPPED) AS QTY_SHIPPED FROM V_ORDER_HIST_LINE WHERE SALESPERSON = '{0}' AND MONTH(DATE_INVOICE) = '{1}'  AND YEAR(DATE_INVOICE) = '{2}' AND PART IN (SELECT PART FROM V_INVENTORY_MSTR WHERE CODE_SORT IN ({3})) GROUP BY ID",v.Screen.fSalePart!txt2SaleRepID.text,v.Local.iCount2,v.Local.icount,v.Local.sLstvw,v.Local.sSQL)
+		f.data.Dictionary.ReturnKeyFromValue("MonthRef",v.Local.icount2,v.Local.sHold)
+		f.Intrinsic.String.Build("{0}_{1}",v.Local.sHold,v.Local.icount,v.Local.sHeaderLb)
+		f.Data.Dictionary.CreateFromSQL("MnthTot1","conx",v.Local.sSQL)
+		f.Data.Dictionary.SetDefaultReturn("MnthTot1",0)
+		f.Data.DataTable.AddColumn("ReportMain1",v.Local.sHeaderLb,"float")
+		f.Data.DataTable.FillFromDictionary("ReportMain1","MnthTot1","ID",v.Local.sHeaderLb)
+		f.Data.Dictionary.Close("MnthTot1")		
+		
+		
+		'if count  in first loop is the to year, set the range or end count for first loop as the selected end month
+		f.Intrinsic.Control.If(v.Local.iCount,=,v.Local.iYear2)
+			v.Local.iMntRng.Set(v.local.imonth2)
+		f.Intrinsic.Control.EndIf
+		'if count  in first loop is the to year set the variable that is passed to the SQL query for YTD total 
+		f.Intrinsic.Control.If(v.Local.iCount,=,v.Local.iYear2)
+			v.Local.sYTD.Set(v.local.imonth2)
+		f.Intrinsic.Control.Else
+			v.Local.sYTD.Set(12)
+		f.Intrinsic.Control.EndIf
+	
+		'if the count is equal to the end range in loop, query the YTD sales upto that month and add column
+		f.Intrinsic.Control.If(v.Local.iCount2,=,v.Local.iMntRng)
+		
+			'f.intrinsic.String.Build("Select Part + '-' + Customer as ID, Sum(qty_shipped)as Qty_Shipped from (select  part, customer,salesperson,Sum(qty_shipped) as Qty_Shipped,Month(Date_invoice) as Month, Year(Date_invoice) as Year from V_ORDER_HIST_LINE where salesperson = '{0}' and part in (select Part from V_INVENTORY_MSTR where code_sort in ({1})) group by salesperson,customer,part,Month,Year) as B where month <= '{2}' and year = '{3}' group by ID",v.Screen.fSalePart!txt2SaleRepID.text,v.Local.sLstvw,v.Local.sYTD,v.Local.icount,v.Local.sSQL)
+			F.Intrinsic.String.Build("SELECT PART + '-' + CUSTOMER AS ID, SUM(QTY_SHIPPED) AS QTY_SHIPPED FROM V_ORDER_HIST_LINE WHERE SALESPERSON = '{0}' AND MONTH(DATE_INVOICE) <= '{1}'  AND YEAR(DATE_INVOICE) = '{2}' AND PART IN (SELECT PART FROM V_INVENTORY_MSTR WHERE CODE_SORT IN ({3})) GROUP BY ID",v.Screen.fSalePart!txt2SaleRepID.text,v.Local.iCount2,v.Local.icount,v.Local.sLstvw,v.Local.sSQL)
+			f.data.Dictionary.ReturnKeyFromValue("MonthRef",v.Local.sYTD,v.Local.sHold)
+			f.Intrinsic.String.Build("YTD_{0}_{1}",v.Local.sHold,v.Local.icount,v.Local.sHeaderLb)
+			f.Data.Dictionary.CreateFromSQL("MnthTot1","conx",v.Local.sSQL)
+			f.Data.Dictionary.SetDefaultReturn("MnthTot1",0)
+			f.Data.DataTable.AddColumn("ReportMain1",v.Local.sHeaderLb,"float")
+			f.Data.DataTable.FillFromDictionary("ReportMain1","MnthTot1","ID",v.Local.sHeaderLb)
+			f.Data.Dictionary.Close("MnthTot1")	
+		f.Intrinsic.Control.endIf
+
+	f.Intrinsic.Control.Next(v.Local.iCount2)	
+f.Intrinsic.Control.Next(v.Local.iCount)
+f.Data.DataTable.RemoveColumn("ReportMain1","ID")
+
+
+f.Data.DataView.Create("ReportMain1","RptMn1",22)
+
+f.intrinsic.String.Build("{0}\{1}_{2}_{3}_to_{4}_{5}.xlsx",v.Screen.fSalePart!txt2folder1.text,v.Screen.fSalePart!ddl2SalesPsn1.text,v.Local.imonth1,v.Local.iYear1,v.Local.imonth2,v.Local.iYear2,v.Local.sOutFile)
+f.Intrinsic.File.Exists(v.Local.sOutFile, v.Local.bCheck)
+f.intrinsic.Control.If(v.Local.bCheck,=,true)
+	f.Intrinsic.String.Build("The file {0} already exists. Please move it to another location or rename it before exporting the current report.",v.Local.sOutFile,v.Local.sMsg)
+	f.Intrinsic.UI.Msgbox(v.Local.sMsg)
+f.Intrinsic.Control.EndIf
+
+
+Gui.fslsexp2.gcsls2.AddGridviewFromDataview("exp_grid1","ReportMain1", "RptMn1")
+
+Gui.fslsexp2.gcsls2.SetColumnProperty("exp_grid1", "customer", "Caption", "Customer ID")
+Gui.fslsexp2.gcsls2.SetColumnProperty("exp_grid1", "customer", "headerfontbold", True)
+Gui.fslsexp2.gcsls2.SetColumnProperty("exp_grid1", "Customer_nm", "Caption", "Customer Name")
+Gui.fslsexp2.gcsls2.SetColumnProperty("exp_grid1", "Customer_nm", "headerfontbold", True)
+Gui.fslsexp2.gcsls2.SetColumnProperty("exp_grid1", "sort_code", "Caption", "Sort Code")
+gui.fslsexp2.gcsls2.MainView("exp_grid1")
+f.Intrinsic.UI.CloseWaitDialog
+gui.fslsexp2..Show
+gui.fslsexp2.gcsls2.Export(v.Local.sOutFile,"xlsx")
+gui.fslsexp2..visible(false)
+f.Intrinsic.String.Build("The report has beeen successfully exported to file {0}",v.Local.sOutFile,v.Local.sMsg)
+f.Intrinsic.UI.Msgbox(v.Local.sMsg)
+
+
+f.Intrinsic.Control.End
+
+
+f.Intrinsic.Control.catch
+f.Intrinsic.Control.CallSub(catching,"sub",v.Ambient.CurrentSubroutine,"errorno",v.Ambient.ErrorNumber,"errordesc",v.Ambient.ErrorDescription)
+f.Intrinsic.Control.EndTry
+Program.Sub.cmd2Export2Xl_Click.End
+
+Program.Sub.catching.Start
+v.Local.sError.declare(string)
+Function.Intrinsic.String.Concat(v.Ambient.Now,": Project: GCG_4627_SALES2XL.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",v.Args.sub,V.Ambient.NewLine,"Error Occurred ",V.Args.errorno," with description ",V.args.errordesc,V.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+f.Intrinsic.Control.If(v.Caller.Switches,=,"1")
+		f.Intrinsic.Control.CallSub(fSaleDate_UnLoad)
+f.Intrinsic.Control.Else
+	f.Intrinsic.Control.CallSub(fSalePart_UnLoad)
+f.Intrinsic.Control.EndIf
+
+Program.Sub.catching.End
